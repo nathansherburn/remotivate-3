@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <style>
+      html, body {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        background-color: #242222;
+      }
+      .browser {
+        display: block;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        border: 4px solid #777;
+      }
+      webview {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="browser" class="browser">
+      <webview class="webview" src="blank.html" plugins></webview>
+    </div>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    var $ = require('jquery')
+    var ipc = require('electron').ipcRenderer
+
+    ipc.on('browser', (event, url) => {
+      console.log(url)
+      $('webview').attr('src', url)
+    })
+  </script>
+</html>

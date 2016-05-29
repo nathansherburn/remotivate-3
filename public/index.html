@@ -1,0 +1,29 @@
+<html>
+
+<head>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <input type="button" onclick="run('http://iview.abc.net.au', false)" value="iView">
+  <input type="button" onclick="run('http://netflix.com', false)" value="Netflix">
+  <input type="button" onclick="run('http://www.sbs.com.au/ondemand/', false)" value="SBS On Demand">
+  <input type="button" onclick="run(false, 'SampleVideo_1280x720_1mb.mp4')" value="Channel 10">
+  <input type="button" onclick="run(false, 'SampleVideo_1280x720_1mb.mp4')" value="Channel 9">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+  <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+ 
+  <script>
+    var socket = io.connect(window.location.host) //port?
+
+    var run = function (url, file) {
+      console.log({ 'url': url, 'file': file })
+      socket.emit('open app', { 'url': url, 'file': file })
+    }
+  </script>
+
+</body>
+
+</html>
