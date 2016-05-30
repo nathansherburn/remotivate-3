@@ -85,9 +85,9 @@ function killVlc () {
 
 function play (file) {
   return new Promise(function(resolve, reject) {
-    let cmd = 'cvlc --fullscreen ' + file
+    let cmd = `cvlc --fullscreen --no-video-title '${__dirname}/${file}'`
     exec(cmd, function(error, stdout, stderr) {
-      error ? reject() : resolve()
+      resolve()
     })
   })
 }
