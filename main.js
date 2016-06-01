@@ -98,6 +98,21 @@ io.on('connection', function (socket) {
     console.log('mouseClicked')
     robot.mouseClick('left', false) // doubleclick = false
   })
+  
+  socket.on('volume', function (value) {
+    console.log(value)
+    let cmd = 'amixer -q -D pulse sset Master '
+    if (value === 'up') cmd += '5%+'
+    else if (value === 'down') cmd += '5%-'
+    else cmd += 'toggle'
+    exec(cmd, function(error, stdout, stderr) {
+      exec('amixer -q -D pulse sget Master', function(error, stdout, stderr) {
+        console.log(stdout)
+        mainWindow.send('volume', stdout)
+      })
+    })
+  })
+
 
   // let damper = 0
   // socket.on('scroll', function (direction) {
@@ -117,10 +132,10 @@ io.on('connection', function (socket) {
   // })
 
   socket.on('type', function (character) {
-    try { 
-      robot.keyTap(character)
-      console.log('tapped', character)
-    }
+    console.log(character)
+    // Fix bug with enter not getting detected
+    if (character === 'enter') robot.keyTap('enter')
+    try { robot.keyTap(character) }
     catch (err) { console.log(err) } 
   })
 

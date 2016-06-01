@@ -195,8 +195,8 @@
       ipc.on('browser', (event, url) => {
         console.log(webview.src, url)
         if (webview.src !== url) {
-          webview.loadURL( url )
-          // $('webview').attr('src', url)
+          // webview.loadURL( url )
+          $('webview').attr('src', url)
         }
       })
       
