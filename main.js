@@ -18,13 +18,13 @@ function createWindow () {
 
   mainWindow = new BrowserWindow({
     webPreferences: { plugins: true },
-    fullscreen: false,
-    frame: true
+    fullscreen: true,
+    frame: false
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
-
-  mainWindow.webContents.openDevTools()
+  
+  // mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
@@ -59,19 +59,72 @@ const expressApp = express()
 const server = require('http').Server(expressApp)
 const io = require('socket.io')(server)
 const exec = require('child_process').exec
+const robot = require('robotjs')
 
 server.listen(3000);
 
 expressApp.use(express.static('public'))
 
+let s = robot.getScreenSize()
+let mousePos = robot.getMousePos()
+
 io.on('connection', function (socket) {
-  socket.on('open app', function (data) {
+
+  socket.on('open', function (data) {
     console.log(data)
     mainWindow.send('browser', data.url || 'blank.html')
     killVlc().then( function () {
       if (data.file) play(data.file)
     })
   })
+  
+  socket.on('nav', function (action) {
+    if (action === 'scrollUp') {
+      robot.scrollMouse(5, "up")
+    } else if (action === 'scrollDown') {
+      robot.scrollMouse(5, "down")
+    } else {
+      mainWindow.send('nav', action)    
+    }
+  })
+
+  socket.on('touchMove', function (offset) {
+    mousePos = robot.getMousePos()
+    console.log(offset)
+    robot.moveMouse(mousePos.x + offset.dx*3, mousePos.y + offset.dy*3)
+  })
+
+  socket.on('mouseClick', function () {
+    console.log('mouseClicked')
+    robot.mouseClick('left', false) // doubleclick = false
+  })
+
+  // let damper = 0
+  // socket.on('scroll', function (direction) {
+  //   console.log(direction)
+  //   if (damper < 2 && damper > -2) {
+  //     damper += direction
+  //     console.log(damper)
+  //     return
+  //   } else {
+  //     if (damper === 2)
+  //       robot.scrollMouse(1, "up")
+  //     else {
+  //       robot.scrollMouse(1, "down")
+  //     }
+  //     damper = 0
+  //   }
+  // })
+
+  socket.on('type', function (character) {
+    console.log('typing', character)
+    try {
+      robot.keyTap(character)
+    } catch (err) {
+      console.log('dodgy key press', err)
+    } 
+  })
+
 })
 
 function killVlc () {

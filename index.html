@@ -2,45 +2,264 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Remotivate TV</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script></script>
     <style>
       html, body {
-        display: flex;
         height: 100%;
         width: 100%;
         padding: 0;
         margin: 0;
         overflow: hidden;
         box-sizing: border-box;
-        background-color: #242222;
+        background-color: #fff;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2em;
       }
+/*      
       .browser {
         display: block;
         height: 100%;
         width: 100%;
         box-sizing: border-box;
         border: 4px solid #777;
-      }
+      }*/
+      
       webview {
         height: 100%;
         width: 100%;
       }
+
+      /*.flex-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+      }
+      
+      .top-bottom-border {
+        width: calc(100%-2px); height: 1px; background-color: #000; margin: 0 1px;
+      }
+      
+      .middle-container {
+        display: flex; height: 100%;
+      }
+      
+      .side-border {
+        width: 1px; background-color: #000;
+      }
+      
+      .popup {
+        display: flex; background-color: #333; position: fixed; z-index: 100; justify-content: center; align-items: center;
+      }
+      
+      .back {
+        top: 0; left: 1px; height: 100%; width: 100px; 
+      }
+
+      .forward {
+        top: 0; right: 1px; height: 100%; width: 100px; 
+      }
+      
+      .refresh {
+        bottom: 1px; height: 100px; width: 100%;
+      }*/
+      
+      .load-bar {
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        height: 6px;
+        background-color: #000;
+      }
+      .bar {
+        content: "";
+        display: inline;
+        position: absolute;
+        width: 0;
+        height: 100%;
+        left: 50%;
+        text-align: center;
+      }
+      .bar:nth-child(1) {
+        background-color: #da4733;
+        animation: loading 3s linear infinite;
+      }
+      .bar:nth-child(2) {
+        background-color: #3b78e7;
+        animation: loading 3s linear 1s infinite;
+      }
+      .bar:nth-child(3) {
+        background-color: #fdba2c;
+        animation: loading 3s linear 2s infinite;
+      }
+      @keyframes loading {
+          from {left: 50%; width: 0;z-index:100;}
+          33.3333% {left: 0; width: 100%;z-index: 10;}
+          to {left: 0; width: 100%;}
+      }
+
+      /*.search-bar {
+        width: 100%; height: 100px; top: 1px; background-color: #3b78e7;
+      }
+      */
+      #search-box {
+        display: none;
+        height: 214px;
+        width: 100%;
+        position: fixed; top: calc(50% - 107px);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      
+      #search-box input {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        padding: 50px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        color: #333;
+        box-shadow: 0px 10px 20px #000;
+        background-color: #000;
+        color: #fff;
+      }
+      
+      .material-icons {
+        font-size: 70px;
+      }
+
     </style>
   </head>
   <body>
-    <div id="browser" class="browser">
-      <webview class="webview" src="blank.html" plugins></webview>
+    
+    <div id="search-box">
+      <input id="search-input">
     </div>
+    
+    <div class="load-bar">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    
+    <!--<div id="search" class="popup search-bar"><i class="material-icons">search</i></div>
+    <div id="back" class="popup back"><i class="material-icons">chevron_left</i></div>
+    <div id="forward" class="popup forward"><i class="material-icons">chevron_right</i></div>
+    <div id="refresh" class="popup refresh"><i class="material-icons">refresh</i></div>-->
+    
+    <!--<div class="flex-wrapper">-->
+      <!--<div id="top" class="top-bottom-border"></div>-->
+      
+      <!--<div class="middle-container">-->
+        <!--<div id="left" class="side-border"></div>-->
+        <!--<div style="width: 100%;">-->
+          <webview id="content" class="webview" src="blank.html" preload="browser-zoom.js" plugins>
+        <!--</div>-->
+        <!--<div id="right" class="side-border"></div>      -->
+      <!--</div>-->
+      
+      <!--<div id="bottom" class="top-bottom-border"></div>-->
+    <!--</div>-->
+    
   </body>
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
-    var $ = require('jquery')
-    var ipc = require('electron').ipcRenderer
+    const electron = require("electron")    
+    const $ = require('jquery')
+    const ipc = require('electron').ipcRenderer
 
-    ipc.on('browser', (event, url) => {
-      console.log(url)
-      $('webview').attr('src', url)
-    })
+    onload = () => {
+      const webview = document.getElementById('content')
+      const indicator = document.querySelector('.load-bar')
+            
+      const loadstart = () => {
+        indicator.style.display = 'flex'
+      }
+
+      const loadstop = () => {
+        indicator.style.display = 'none'
+      }
+
+      webview.addEventListener('did-start-loading', loadstart)
+      webview.addEventListener('did-stop-loading', loadstop)
+      webview.addEventListener('console-message', function(m){console.log(m)})
+         
+      ipc.on('browser', (event, url) => {
+        console.log(url)
+        $('webview').attr('src', url)
+      })
+      
+      ipc.on('nav', (event, action) => {
+        console.log('nav', action)
+        if (action === 'zoomIn') {
+          webview.send('zoom', 'in')
+        } else if (action === 'zoomOut') {
+          webview.send('zoom', 'out')
+        } else if (action === 'back') {
+          webview.goBack()
+        } else if (action === 'forward') {
+          webview.goForward()
+        } else if (action === 'search') {
+          $('#search-box').fadeIn()
+          $('#search-input').focus()
+        } else if (action === 'refresh') {
+          webview.reload()
+        }
+      })
+
+      // $('.popup').hide()
+      
+      // $('#top').hover(
+      //   () => $('#search').fadeIn(),
+      //   () => $('#search').fadeOut()
+      // )
+      
+      // $('#left').hover(
+      //   () => $('#back').fadeIn(),
+      //   () => $('#back').fadeOut()
+      // )
+            
+      // $('#right').hover(
+      //   () => $('#forward').fadeIn(),
+      //   () => $('#forward').fadeOut()      
+      // )
+      
+      // $('#bottom').hover(
+      //   () => $('#refresh').fadeIn(),
+      //   () => $('#refresh').fadeOut()      
+      // )
+
+      // $('#left').click( () => webview.goBack() )
+      // $('#right').click( () => webview.goForward() )
+      // $('#top').click( () => {
+      //   $('#search-box').fadeIn()
+      //   $('#search-input').focus()
+      // })
+      // $('#bottom').click( () => webview.reload() )
+      
+      $("#search-input").keyup(function (e) {
+        if (e.keyCode == 13) {
+          $('#search-box').fadeOut()
+          let q = `https://www.google.com.au/?ion=1&espv=2#q=${ $('#search-input').val() }`
+          webview.loadURL( q )
+          $('#search-input').val('')
+        }
+      })
+
+      $(document).mouseup(function (e) {
+        let searchBox = $('#search-box')
+        if (!searchBox.is(e.target)) {
+          searchBox.fadeOut()
+        }
+      })
+
+    }
   </script>
 </html>
