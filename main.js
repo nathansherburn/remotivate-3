@@ -117,12 +117,11 @@ io.on('connection', function (socket) {
   // })
 
   socket.on('type', function (character) {
-    console.log('typing', character)
-    try {
+    try { 
       robot.keyTap(character)
-    } catch (err) {
-      console.log('dodgy key press', err)
-    } 
+      console.log('tapped', character)
+    }
+    catch (err) { console.log(err) } 
   })
 
 })
@@ -138,7 +137,7 @@ function killVlc () {
 
 function play (file) {
   return new Promise(function(resolve, reject) {
-    let cmd = `cvlc --fullscreen --no-video-title '${__dirname}/${file}'`
+    let cmd = `cvlc --fullscreen --no-video-title --no-mouse-events '${__dirname}/${file}'`
     exec(cmd, function(error, stdout, stderr) {
       resolve()
     })

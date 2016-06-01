@@ -112,6 +112,7 @@
         position: fixed; top: calc(50% - 107px);
         padding: 20px;
         box-sizing: border-box;
+        padding: 0 60px;
       }
       
       #search-box input {
@@ -192,8 +193,11 @@
       webview.addEventListener('console-message', function(m){console.log(m)})
          
       ipc.on('browser', (event, url) => {
-        console.log(url)
-        $('webview').attr('src', url)
+        console.log(webview.src, url)
+        if (webview.src !== url) {
+          webview.loadURL( url )
+          // $('webview').attr('src', url)
+        }
       })
       
       ipc.on('nav', (event, action) => {
@@ -245,7 +249,8 @@
       // $('#bottom').click( () => webview.reload() )
       
       $("#search-input").keyup(function (e) {
-        if (e.keyCode == 13) {
+        console.log(e.keyCode)
+        if (e.keyCode === 13) {
           $('#search-box').fadeOut()
           let q = `https://www.google.com.au/?ion=1&espv=2#q=${ $('#search-input').val() }`
           webview.loadURL( q )

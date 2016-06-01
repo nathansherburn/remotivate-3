@@ -2,6 +2,8 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body, html {
@@ -13,6 +15,11 @@
       background-color: #242222;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
+      -webkit-overflow-scrolling: touch;
+      -webkit-user-select: none;  /* Chrome all / Safari all */
+      -moz-user-select: none;     /* Firefox all */
+      -ms-user-select: none;      /* IE 10+ */
+      user-select: none;          /* Likely future */      
     }
     
     .top-buttons {
@@ -51,7 +58,6 @@
       background-color: #333;
       outline: none;
       border: none;
-      user-select: none;
     }
     
     .controls { height: 400px; display: flex; flex-direction: row; }
@@ -79,7 +85,7 @@
   <div class="top-buttons">
     <div style="display: flex; height: 100%; align-items: center;">
     <i id="apps" class="material-icons">&#xE5C3;</i>
-    <i id="controls" class="material-icons">&#xE312;</i>
+    <!--<i id="controls" class="material-icons">&#xE312;</i>-->
     <span style="flex: 1;"></span>
     <i class="material-icons">&#xE04D;</i>
     <i class="material-icons">&#xE04F;</i>
@@ -91,10 +97,10 @@
   <div class="main">
     
     <div class="app-list">
-      <input type="button" onclick="emit('open', {url: 'http://iview.abc.net.au'})" value="iView">
-      <input type="button" onclick="emit('open', {url: 'http://netflix.com'})" value="Netflix">
-      <input type="button" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand'})" value="SBS On Demand">
-      <input type="button" onclick="emit('open', {url: 'http://youtube.com'})" value="YouTube">
+      <input type="button" onclick="emit('open', {url: 'http://iview.abc.net.au/'})" value="iView">
+      <input type="button" onclick="emit('open', {url: 'http://netflix.com/'})" value="Netflix">
+      <input type="button" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand/'})" value="SBS On Demand">
+      <input type="button" onclick="emit('open', {url: 'http://youtube.com/'})" value="YouTube">
       <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="10">
       <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="9">
       <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="7">
@@ -143,6 +149,7 @@
   </div>
  
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js"></script>
   <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
  
   <script>
@@ -166,6 +173,10 @@
       launchIntoFullscreen(document.documentElement)
     })
     
+    $(function() {
+      FastClick.attach(document.body);
+    })
+    
     var xPrev = 0
     var yPrev = 0
 
@@ -177,6 +188,8 @@
     
     $('.pc-controls').hide()
     
+
+
     var emit = function (message, data) {
       console.log(message, data)
       if(data.url) {
@@ -198,8 +211,14 @@
       $('.pc-controls').slideUp()
     })
 
+    $(document).on('touchmove', function (e) {
+      e.originalEvent.preventDefault()
+    })
+    
     $(document).on('touchstart', '.touch-pad', function(e) {
-      
+
+      touchRelease = false
+
       setTimeout(function(){
         if (touchRelease
           && e.originalEvent.touches[0].clientX === xPrev
@@ -214,9 +233,8 @@
 
     $(document).on('touchmove', '.touch-pad', function (e) {
       console.log( 'ontouchmove' )
-
-      touchRelease = false
-
+      e.originalEvent.preventDefault()
+      
       var dx = e.originalEvent.touches[0].clientX - xPrev
       var dy = e.originalEvent.touches[0].clientY - yPrev
 
@@ -236,29 +254,26 @@
       touchRelease = true
       filterFirstMove = true
     })
-    
-    $(document).on('touchend', '.touch-pad', function (e) {
-      console.log( 'touchend' )
-      touchRelease = true
-    })
-    
-    $(document).on('touchstart', '.scroll', function (e) {
-      console.log("scroll start")
-      scrollPrev = e.originalEvent.touches[0].clientY
-    })
 
-    $(document).on('touchmove', '.scroll', function (e) {
-      console.log("scroll")
-      if (e.originalEvent.touches[0].clientY - scrollPrev > 0) {
-        socket.emit("scroll", 1)
-      } else {
-        socket.emit("scroll", -1)
-      }
-      scrollPrev = e.originalEvent.touches[0].clientY
-    })
     
-    
+    // $(document).on('touchstart', '.scroll', function (e) {
+    //   console.log("scroll start")
+    //   scrollPrev = e.originalEvent.touches[0].clientY
+    // })
 
+    // $(document).on('touchmove', '.scroll', function (e) {
+    //   console.log("scroll")
+    //   e.originalEvent.preventDefault()
+      
+    //   if (e.originalEvent.touches[0].clientY - scrollPrev > 0) {
+    //     socket.emit("scroll", 1)
+    //   } else {
+    //     socket.emit("scroll", -1)
+    //   }
+      
+    //   scrollPrev = e.originalEvent.touches[0].clientY
+    // })
+    
     $("#text-input").keyup(function (e) {
       var key = String.fromCharCode(e.keyCode)
       if(e.keyCode === 13) {
