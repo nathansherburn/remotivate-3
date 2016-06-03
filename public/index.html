@@ -34,7 +34,7 @@
     
     .top-buttons i { font-size: 40px; padding: 10px; }
     
-    .app-list { display: flex; }
+    .app-list { display: flex; flex-wrap: wrap; height: 100%; overflow-y: scroll; width: 100%; justify-content: space-around;}
 
     .main { height: calc(100% - 80px); margin-top: 80px; }
 
@@ -76,7 +76,18 @@
     }
     .scroll { width: 80px; }
     .touch-pad { flex: 1; background-color: #333; }
-
+    .app {
+      width: 100px;
+      height: 100px;
+      background-color: #444;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-break: break-all;
+      cursor: pointer;
+      margin: 10px;
+    }
   </style>
 </head>
 
@@ -97,17 +108,36 @@
   <div class="main">
     
     <div class="app-list">
-      <input type="button" onclick="emit('open', {url: 'http://iview.abc.net.au/'})" value="iView">
-      <input type="button" onclick="emit('open', {url: 'http://netflix.com/'})" value="Netflix">
-      <input type="button" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand/'})" value="SBS On Demand">
-      <input type="button" onclick="emit('open', {url: 'http://youtube.com/'})" value="YouTube">
-      <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="10">
-      <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="9">
-      <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="7">
-      <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="SBS">
-      <input type="button" onclick="emit('open', {file: 'channels/SampleVideo_1280x720_1mb.mp4'})" value="ABC">
+      <div class="app" onclick="emit('open', {url: 'http://iview.abc.net.au/'})">iView</div>
+      <div class="app" onclick="emit('open', {url: 'http://netflix.com/'})">Netflix</div>
+      <div class="app" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand/'})">SBS On Demand</div>
+      <div class="app" onclick="emit('open', {url: 'http://youtube.com/'})">YouTube</div>
+      
+      <div class="app" onclick="emit('open', {file: 'channels/7 Digital 1(Seven Network).vlc'})">7 Digital 1(Seven Network)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/7 Digital(Seven Network).vlc'})">7 Digital(Seven Network)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/7flix(Seven Network).vlc'})">7flix(Seven Network)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/7mate(Seven Network).vlc'})">7mate(Seven Network)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/7TWO(Seven Network).vlc'})">7TWO(Seven Network</div>
+      <div class="app" onclick="emit('open', {file: 'channels/9Gem(Nine Network Australia).vlc'})">9Gem(Nine Network Australia)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/9Go!(Nine Network Australia).vlc'})">9Go!(Nine Network Australia)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/9HD Melbourne(Nine Network Australia).vlc'})">9HD Melbourne(Nine Network Australia)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/9Life(Nine Network Australia).vlc'})">9Life(Nine Network Australia)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC3(ABC).vlc'})">ABC3(ABC)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC(ABC).vlc'})">ABC(ABC)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC Jazz(ABC).vlc'})">ABC Jazz(ABC)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC News 24(ABC).vlc'})">ABC News 24(ABC)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/Channel 9 Melbourne(Nine Network Australia).vlc'})">Channel 9 Melbourne(Nine Network Australia)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/Double J(ABC).vlc'})">Double J(ABC)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/ELEVEN(Ten Melbourne).vlc'})">ELEVEN(Ten Melbourne)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/Extra(Nine Network Australia).vlc'})">Extra(Nine Network Australia)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/ONE(Ten Melbourne).vlc'})">ONE(Ten Melbourne)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/RACING.COM(Seven Network).vlc'})">RACING.COM(Seven Network)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/SpreeTV(Ten Melbourne).vlc'})">SpreeTV(Ten Melbourne).vlc</div>
+      <div class="app" onclick="emit('open', {file: 'channels/TEN Digital(Ten Melbourne).vlc'})">TEN Digital(Ten Melbourne)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/TEN HD(Ten Melbourne).vlc'})">TEN HD(Ten Melbourne)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/TV4ME(Seven Network).vlc'})">TV4ME(Seven Network)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/TVSN(Ten Melbourne).vlc'})">TVSN(Ten Melbourne)</div>
     </div>
-    
     <div class="pc-controls">
       <div class="favorites-list">favorites list</div>
       <div class="text-input">
@@ -176,7 +206,7 @@
     $(function() {
       FastClick.attach(document.body);
     })
-    
+        
     var xPrev = 0
     var yPrev = 0
 
@@ -212,9 +242,12 @@
     })
 
     $(document).on('touchmove', function (e) {
-      e.originalEvent.preventDefault()
+      // iphone elastic scroll seems impossible to stop without this
+      /// can't scroll app list with it though
+      //e.originalEvent.preventDefault()
+      // cordova?
     })
-    
+        
     $(document).on('touchstart', '.touch-pad', function(e) {
 
       touchRelease = false
