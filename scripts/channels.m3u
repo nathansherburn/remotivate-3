@@ -1,0 +1,180 @@
+#EXTINF:0,7 Digital(Seven Network)
+#EXTVLCOPT:program=1328
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7 Digital 1(Seven Network)
+#EXTVLCOPT:program=1329
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7TWO(Seven Network)
+#EXTVLCOPT:program=1330
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7mate(Seven Network)
+#EXTVLCOPT:program=1331
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7 Digital(Seven Network)
+#EXTVLCOPT:program=1332
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7flix(Seven Network)
+#EXTVLCOPT:program=1333
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TV4ME(Seven Network)
+#EXTVLCOPT:program=1335
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,RACING.COM(Seven Network)
+#EXTVLCOPT:program=1336
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Channel 9 Melbourne(Nine Network Australia)
+#EXTVLCOPT:program=1072
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Channel 9 Melbourne(Nine Network Australia)
+#EXTVLCOPT:program=1077
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9HD Melbourne(Nine Network Australia)
+#EXTVLCOPT:program=1073
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Gem(Nine Network Australia)
+#EXTVLCOPT:program=1078
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Go!(Nine Network Australia)
+#EXTVLCOPT:program=1074
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Go!(Nine Network Australia)
+#EXTVLCOPT:program=1079
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Life(Nine Network Australia)
+#EXTVLCOPT:program=1075
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Extra(Nine Network Australia)
+#EXTVLCOPT:program=1076
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ONE(Ten Melbourne)
+#EXTVLCOPT:program=1585
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TEN Digital(Ten Melbourne)
+#EXTVLCOPT:program=1589
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TVSN(Ten Melbourne)
+#EXTVLCOPT:program=1590
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ONE(Ten Melbourne)
+#EXTVLCOPT:program=1591
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ELEVEN(Ten Melbourne)
+#EXTVLCOPT:program=1592
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SpreeTV(Ten Melbourne)
+#EXTVLCOPT:program=1593
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TEN HD(Ten Melbourne)
+#EXTVLCOPT:program=1588
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC News 24(ABC)
+#EXTVLCOPT:program=560
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC(ABC)
+#EXTVLCOPT:program=561
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC2/KIDS(ABC)
+#EXTVLCOPT:program=562
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC(ABC)
+#EXTVLCOPT:program=563
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC3(ABC)
+#EXTVLCOPT:program=564
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Double J(ABC)
+#EXTVLCOPT:program=566
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC Jazz(ABC)
+#EXTVLCOPT:program=567
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1328
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1329
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1330
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1331
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1332
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1333
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1335
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=177500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1336
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1072
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1077
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1073
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1078
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1074
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1079
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1075
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=191625000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1076
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=219500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1585
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=219500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1589
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=219500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1590
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=219500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1591
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=219500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1592
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=219500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1593
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=219500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=1588
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=226500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=560
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=226500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=561
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=226500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=562
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=226500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=563
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=226500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=564
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,dvb-t://frequency=226500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=566
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:18600,dvb-t://frequency=226500000/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTVLCOPT:program=567
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0

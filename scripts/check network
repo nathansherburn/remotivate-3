@@ -1,0 +1,6 @@
+nmcli nm
+
+gives
+
+RUNNING         STATE           WIFI-HARDWARE   WIFI       WWAN-HARDWARE   WWAN      
+running         connected       enabled         enabled    enabled         enabled   
