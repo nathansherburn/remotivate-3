@@ -18,7 +18,7 @@ function createWindow () {
 
   mainWindow = new BrowserWindow({
     webPreferences: { plugins: true },
-    fullscreen: true,
+    fullscreen: false,
     frame: false
   })
 
@@ -99,18 +99,29 @@ io.on('connection', function (socket) {
     robot.mouseClick('left', false) // doubleclick = false
   })
   
+  let volume = 10
+  exec('amixer -q -D pulse sset Master unmute 10%')
   socket.on('volume', function (value) {
     console.log(value)
     let cmd = 'amixer -q -D pulse sset Master '
-    if (value === 'up') cmd += '5%+'
-    else if (value === 'down') cmd += '5%-'
-    else cmd += 'toggle'
+    if (value === 'mute') cmd += 'toggle'
+    else {
+      if (value === 'up') {
+        volume >= 95 ? volume = 100 : volume += 5 
+        cmd += 'unmute ' + volume + '%'
+      }
+      else if (value === 'down') {
+        volume <= 5 ? volume = 0 : volume -= 5 
+        cmd += 'unmute ' + volume + '%'
+      }
+    }
+    
     exec(cmd, function(error, stdout, stderr) {
       exec('amixer -q -D pulse sget Master', function(error, stdout, stderr) {
-        console.log(stdout)
-        mainWindow.send('volume', stdout)
+        mainWindow.send('volume', value)
       })
     })
+    
   })
 
 
@@ -139,6 +150,10 @@ io.on('connection', function (socket) {
     catch (err) { console.log(err) } 
   })
 
+  socket.on('power', function (character) {
+    exec('xfce4-session-logout --suspend')
+  })  
+  
 })
 
 function killVlc () {
