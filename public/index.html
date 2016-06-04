@@ -32,7 +32,7 @@
       font-size: 80px;
     }
     
-    .top-buttons i { font-size: 40px; padding: 10px; }
+    .top-buttons i { font-size: 40px; padding: 10px 20px; }
     
     .app-list { display: flex; flex-wrap: wrap; height: 100%; overflow-y: scroll; width: 100%; justify-content: space-around;}
 
@@ -87,12 +87,15 @@
       word-break: break-all;
       cursor: pointer;
       margin: 10px;
+      box-shadow: 0px 10px 10px #000;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
-  
+  <audio src="tap.mp3" preload="auto"></audio>
+
   <div class="top-buttons">
     <div style="display: flex; height: 100%; align-items: center;">
     <i id="apps" class="material-icons">&#xE5C3;</i>
@@ -185,6 +188,8 @@
   <script>
     var socket = io.connect(window.location.host)
 
+    var tap = document.getElementsByTagName("audio")[0]
+
     // Find the right method, call on correct element
     function launchIntoFullscreen(element) {
       if(element.requestFullscreen) {
@@ -198,10 +203,10 @@
       }
     }
 
-    // $(document).on('click', function() {
-    //   console.log('click')
-    //   launchIntoFullscreen(document.documentElement)
-    // })
+    $(document).on('click', function() {
+      console.log('click')
+      launchIntoFullscreen(document.documentElement)
+    })
     
     $(function() {
       FastClick.attach(document.body);
@@ -222,7 +227,8 @@
 
     var emit = function (message, data) {
       console.log(message, data)
-      if(data.url) {
+      tap.play()
+      if(data && data.url) {
         $('.app-list').slideUp()
         $('.pc-controls').slideDown()
       } else if (data === 'search') {
@@ -232,11 +238,13 @@
     }
     
     $('#controls').click(function () {
+      tap.play()
       $('.app-list').slideUp()
       $('.pc-controls').slideDown()
     })
     
     $('#apps').click(function () {
+      tap.play()
       $('.app-list').slideDown()
       $('.pc-controls').slideUp()
     })

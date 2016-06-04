@@ -18,7 +18,7 @@ function createWindow () {
 
   mainWindow = new BrowserWindow({
     webPreferences: { plugins: true },
-    fullscreen: false,
+    fullscreen: true,
     frame: false
   })
 
