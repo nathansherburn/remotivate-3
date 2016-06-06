@@ -60,6 +60,7 @@ const server = require('http').Server(expressApp)
 const io = require('socket.io')(server)
 const exec = require('child_process').exec
 const robot = require('robotjs')
+const fs = require('fs')
 
 server.listen(3000);
 
@@ -74,6 +75,10 @@ exec('amixer -q -D pulse sset Master unmute 10%')
 
 io.on('connection', function (socket) {
 
+  // setTimeout(function (){
+  //   socket.emit('video list', findVideos(__dirname + '/downloads'))
+  // }, 1000)
+  
   socket.on('open', function (data) {
     console.log(data)
     mainWindow.send('browser', data.url || 'blank.html')
@@ -126,24 +131,6 @@ io.on('connection', function (socket) {
     
   })
 
-
-  // let damper = 0
-  // socket.on('scroll', function (direction) {
-  //   console.log(direction)
-  //   if (damper < 2 && damper > -2) {
-  //     damper += direction
-  //     console.log(damper)
-  //     return
-  //   } else {
-  //     if (damper === 2)
-  //       robot.scrollMouse(1, "up")
-  //     else {
-  //       robot.scrollMouse(1, "down")
-  //     }
-  //     damper = 0
-  //   }
-  // })
-
   socket.on('type', function (character) {
     console.log(character)
     // Fix bug with enter not getting detected
@@ -174,4 +161,26 @@ function play (file) {
       resolve()
     })
   })
+}
+
+function findVideos(path) {
+  
+  let videos = []
+  search(path)
+  return videos
+
+  function search (path) {
+    let files = []
+
+    try { files = fs.readdirSync(path) }
+    catch (err) { return }
+  
+    files.forEach(function(file){
+      let video = /^.*\.(avi|AVI|wmv|WMV|flv|FLV|mpg|MPG|mp4|MP4)$/
+      if (video.test(file))
+        videos.push(path+'/'+file)
+      else 
+        search(path + '/' + file)
+    })
+  }
 }
