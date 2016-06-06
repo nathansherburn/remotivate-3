@@ -20,6 +20,8 @@
       -moz-user-select: none;     /* Firefox all */
       -ms-user-select: none;      /* IE 10+ */
       user-select: none;          /* Likely future */      
+      background-image: url("img/bg.jpg");
+      background-size: cover;
     }
     
     .top-buttons {
@@ -40,7 +42,12 @@
 
     .pc-controls { display: flex; flex-direction: column; height: 100%; }
     
-    .favorites-list { flex: 1; background-color: #fff; }
+    .favorites-list {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+    }
     
     .text-input {
       height: 80px;
@@ -66,6 +73,7 @@
       width: 80px;
       display: flex;
       flex-direction: column;
+      background-color: #333;
     }
     .side-btns .btn {
       flex: 1;
@@ -77,9 +85,11 @@
     .scroll { width: 80px; }
     .touch-pad { flex: 1; background-color: #333; }
     .app {
+      box-sizing: border-box;
       width: 100px;
+      padding: 4px;
       height: 100px;
-      background-color: #444;
+      background-color: #f3f3f3;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -87,8 +97,11 @@
       word-break: break-all;
       cursor: pointer;
       margin: 10px;
-      box-shadow: 0px 10px 10px #000;
+      box-shadow: 0px 6px 20px #000;
       text-align: center;
+    }
+    .app img {
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -111,38 +124,105 @@
   <div class="main">
     
     <div class="app-list">
-      <div class="app" onclick="emit('open', {url: 'http://iview.abc.net.au/'})">iView</div>
-      <div class="app" onclick="emit('open', {url: 'http://netflix.com/'})">Netflix</div>
-      <div class="app" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand/'})">SBS On Demand</div>
-      <div class="app" onclick="emit('open', {url: 'http://youtube.com/'})">YouTube</div>
+      <div class="app" onclick="emit('open', {url: 'http://iview.abc.net.au/'})">
+        <img src="img/iview.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {url: 'http://netflix.com/'})">
+        <img src="img/netflix.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand/'})">
+        <img src="img/ondemand.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {url: 'http://youtube.com/'})">
+        <img src="img/youtube.png" width="100%">
+      </div>
       
-      <div class="app" onclick="emit('open', {file: 'channels/7 Digital 1(Seven Network).vlc'})">7 Digital 1(Seven Network)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/7 Digital(Seven Network).vlc'})">7 Digital(Seven Network)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/7flix(Seven Network).vlc'})">7flix(Seven Network)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/7mate(Seven Network).vlc'})">7mate(Seven Network)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/7TWO(Seven Network).vlc'})">7TWO(Seven Network</div>
-      <div class="app" onclick="emit('open', {file: 'channels/9Gem(Nine Network Australia).vlc'})">9Gem(Nine Network Australia)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/9Go!(Nine Network Australia).vlc'})">9Go!(Nine Network Australia)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/9HD Melbourne(Nine Network Australia).vlc'})">9HD Melbourne(Nine Network Australia)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/9Life(Nine Network Australia).vlc'})">9Life(Nine Network Australia)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/ABC3(ABC).vlc'})">ABC3(ABC)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/ABC(ABC).vlc'})">ABC(ABC)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/ABC Jazz(ABC).vlc'})">ABC Jazz(ABC)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/ABC News 24(ABC).vlc'})">ABC News 24(ABC)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/Channel 9 Melbourne(Nine Network Australia).vlc'})">Channel 9 Melbourne(Nine Network Australia)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/Double J(ABC).vlc'})">Double J(ABC)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/ELEVEN(Ten Melbourne).vlc'})">ELEVEN(Ten Melbourne)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/Extra(Nine Network Australia).vlc'})">Extra(Nine Network Australia)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/ONE(Ten Melbourne).vlc'})">ONE(Ten Melbourne)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/RACING.COM(Seven Network).vlc'})">RACING.COM(Seven Network)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/SpreeTV(Ten Melbourne).vlc'})">SpreeTV(Ten Melbourne).vlc</div>
-      <div class="app" onclick="emit('open', {file: 'channels/TEN Digital(Ten Melbourne).vlc'})">TEN Digital(Ten Melbourne)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/TEN HD(Ten Melbourne).vlc'})">TEN HD(Ten Melbourne)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/TV4ME(Seven Network).vlc'})">TV4ME(Seven Network)</div>
-      <div class="app" onclick="emit('open', {file: 'channels/TVSN(Ten Melbourne).vlc'})">TVSN(Ten Melbourne)</div>
+      <div class="app" onclick="emit('open', {file: 'channels/7 Digital 1(Seven Network).vlc'})">
+        <img src="img/7.jpg" width="100%">
+      </div>
+      <!--<div class="app" onclick="emit('open', {file: 'channels/7 Digital(Seven Network).vlc'})">7 Digital(Seven Network)</div>-->
+      <div class="app" onclick="emit('open', {file: 'channels/7flix(Seven Network).vlc'})">
+        <img src="img/7flix.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/7mate(Seven Network).vlc'})">
+        <img src="img/7MATE.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/7TWO(Seven Network).vlc'})">
+        <img src="img/7two.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/9Gem(Nine Network Australia).vlc'})">
+        <img src="img/GEM.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/9Go!(Nine Network Australia).vlc'})">
+        <img src="img/GO1.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/9HD Melbourne(Nine Network Australia).vlc'})">
+        <img src="img/ninehd.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/9Life(Nine Network Australia).vlc'})">
+        <img src="img/life.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC3(ABC).vlc'})">
+        <img src="img/ABC3.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC(ABC).vlc'})">
+        <img src="img/ABC1.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC Jazz(ABC).vlc'})">
+        <img src="img/ABCjazz.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/ABC News 24(ABC).vlc'})">
+        <img src="img/ABC_NEWS.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/Channel 9 Melbourne(Nine Network Australia).vlc'})">
+        <img src="img/9.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/Double J(ABC).vlc'})">
+        <img src="img/doublej.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/ELEVEN(Ten Melbourne).vlc'})">
+        <img src="img/11.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/Extra(Nine Network Australia).vlc'})">
+        <img src="img/extra.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/ONE(Ten Melbourne).vlc'})">
+        <img src="img/oneHD.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/RACING.COM(Seven Network).vlc'})">
+        <img src="img/racing.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/SpreeTV(Ten Melbourne).vlc'})">
+        <img src="img/spree.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/TEN Digital(Ten Melbourne).vlc'})">
+        <img src="img/10.jpg" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/TEN HD(Ten Melbourne).vlc'})">
+        <img src="img/10hd.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/TV4ME(Seven Network).vlc'})">
+        <img src="img/tv4me.png" width="100%">
+      </div>
+      <div class="app" onclick="emit('open', {file: 'channels/TVSN(Ten Melbourne).vlc'})">
+        <img src="img/TVSN.jpg" width="100%">
+      </div>
     </div>
     <div class="pc-controls">
-      <div class="favorites-list">favorites list</div>
+      <div class="favorites-list">
+        <div class="app" onclick="emit('open', {url: 'http://iview.abc.net.au/'})">
+          <img src="img/iview.png" width="100%">
+        </div>
+        <div class="app" onclick="emit('open', {url: 'http://netflix.com/'})">
+          <img src="img/netflix.png" width="100%">
+        </div>
+        <div class="app" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand/'})">
+          <img src="img/ondemand.jpg" width="100%">
+        </div>
+        <div class="app" onclick="emit('open', {url: 'http://youtube.com/'})">
+          <img src="img/youtube.png" width="100%">
+        </div>
+      </div>
       <div class="text-input">
         <input id="text-input" type="text" placeholder="type here...">
       </div>
@@ -205,7 +285,7 @@
 
     $(document).on('click', function() {
       console.log('click')
-      launchIntoFullscreen(document.documentElement)
+      // launchIntoFullscreen(document.documentElement)
     })
     
     $(function() {
