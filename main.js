@@ -27,9 +27,6 @@ function createWindow () {
   // mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null
   })
 }
@@ -123,9 +120,11 @@ io.on('connection', function (socket) {
       }
     }
     
+    let timer = null
     exec(cmd, function(error, stdout, stderr) {
       exec('amixer -q -D pulse sget Master', function(error, stdout, stderr) {
-        mainWindow.send('volume', value)
+        // mainWindow.send('volume', value)
+        io.emit('volume changed', volume)
       })
     })
     
