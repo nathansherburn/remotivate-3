@@ -18,8 +18,8 @@ function createWindow () {
 
   mainWindow = new BrowserWindow({
     webPreferences: { plugins: true },
-    fullscreen: true,
-    frame: false
+    fullscreen: false,
+    frame: true
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
@@ -67,6 +67,10 @@ expressApp.use(express.static('public'))
 
 let s = robot.getScreenSize()
 let mousePos = robot.getMousePos()
+let volume = 10
+
+// Initialize audio volume to 10%
+exec('amixer -q -D pulse sset Master unmute 10%')
 
 io.on('connection', function (socket) {
 
@@ -99,8 +103,6 @@ io.on('connection', function (socket) {
     robot.mouseClick('left', false) // doubleclick = false
   })
   
-  let volume = 10
-  exec('amixer -q -D pulse sset Master unmute 10%')
   socket.on('volume', function (value) {
     console.log(value)
     let cmd = 'amixer -q -D pulse sset Master '
