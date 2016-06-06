@@ -1,30 +1,24 @@
 var fs = require('fs');
-var array = fs.readFileSync('channels.m3u').toString().split("\n");
-var channels = {}
+var channels = fs.readFileSync('channels.m3u').toString().split("\n");
 
-var fileName = ''
 
-for(i in array) {
-    var fileContents = false
-    if (array[i].substring(0,7) === '#EXTINF') {
-        if (array[i].substring(10,13) === 'dvb') {
-            fileName = array[i].substring(28,37)
-            console.log('file name: ' + array[i].substring(28,37))
-        } else {
-            fileName = array[i].substring(10)            
-            console.log('file name: ' + array[i].substring(10))
-        }
-    } else if (array[i][0] !== '#') {
-        fileContents = array[i]                    
-        console.log('file contents: ', array[i])        
-    }
+for(var i = 1; i < channels.length - 1; i += 3) {
     
-    if (fileContents) {
-        fs.writeFile('/home/nathan/remotivate-3/scripts/'+fileName+'.vlc', fileContents, function(err) {
-            if(err) { return console.log(err); }
-            console.log("The file was saved!");
-        }); 
+    var filename = ''
+    var fileContents = '#EXTM3U\n'+channels[i]+'\n'+channels[i+1]+'\n'+channels[i+2]+'\n'
+
+    if (channels[i].substring(10,13) === 'dvb') {
+        filename = channels[i+1].substring(19)
+    } else if (channels[i].substring(10,13) === '600') {
+        filename = channels[i+1].substring(19)
+    } else {
+        filename = channels[i].substring(10)        
     }
+       
+    fs.writeFile('/home/nathan/remotivate-3/scripts/'+filename+'.m3u', fileContents, function(err) {
+        if(err) { return console.log(err); }
+        console.log("The file was saved!");
+    }); 
     
 }
 
