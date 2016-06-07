@@ -119,11 +119,8 @@ io.on('connection', function (socket) {
         cmd += 'unmute ' + volume + '%'
       }
     }
-    
-    let timer = null
     exec(cmd, function(error, stdout, stderr) {
       exec('amixer -q -D pulse sget Master', function(error, stdout, stderr) {
-        // mainWindow.send('volume', value)
         io.emit('volume changed', volume)
       })
     })

@@ -32,12 +32,21 @@
       box-shadow: 0px 0px 10px #000;
       z-index: 100;
       font-size: 80px;
+      padding: 10px;
+      box-sizing: border-box;
     }
     
-    .top-buttons i { font-size: 40px; padding: 10px 20px; }
+    .top-buttons i { font-size: 30px; padding: 10px 10px; }
     
-    .app-list { display: flex; flex-wrap: wrap; height: 100%; overflow-y: scroll; width: 100%; justify-content: space-around;}
-
+    .app-list {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+      overflow-y: scroll;
+      width: 100%;
+      justify-content: space-around;
+    }
+ 
     .main { height: calc(100% - 80px); margin-top: 80px; }
 
     .pc-controls { display: flex; flex-direction: column; height: 100%; }
@@ -67,7 +76,7 @@
       border: none;
     }
     
-    .controls { height: 400px; display: flex; flex-direction: row; }
+    .side-controls { height: 400px; display: flex; flex-direction: row; }
     
     .side-btns {
       width: 80px;
@@ -105,36 +114,76 @@
     }
     .volume {
       position: fixed;
-      top: 10px;
+      top: 90px;
       left: calc(50% - 50px);
       width: 100px;
-      background-color: #333;
+      background-color: #000;
       z-index: 200;
       border-radius: 10px;
       text-align: center;
       padding: 10px;
       font-size: 20px;
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    .shutdown {
+      position: fixed;
+      top: 90px;
+      left: calc(50% - 150px);
+      width: 300px;
+      background-color: #000;
+      z-index: 200;
+      border-radius: 10px;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      font-size: 20px;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+    .shutdown-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f00;
+      border-radius: 10px;
+      width: 160px;
+      height: 60px;
+      margin-bottom: 20px;
+    }
+
   </style>
 </head>
 
 <body>
   <audio src="tap.mp3" preload="auto"></audio>
   
+  <div class="volume"></div>
+  
+  <div class="shutdown">
+    <div class="shutdown-btn" onclick="emit('power')">SHUTDOWN</div>
+    <div onclick="toggleShutdown()">CANCEL</div>
+  </div>
+  
   <div class="top-buttons">
     <div style="display: flex; height: 100%; align-items: center;">
-    <i id="apps" class="material-icons">&#xE5C3;</i>
-    <!--<i id="controls" class="material-icons">&#xE312;</i>-->
+    <!--<i id="apps" class="material-icons">&#xE5C3;</i>-->
+    <i id="controls" class="material-icons">&#xE312;</i>
     <span style="flex: 1;"></span>
+    <i class="material-icons" onclick="emit('type', 'space')">&#xE035;</i>
     <i class="material-icons" onclick="emit('volume', 'down')">&#xE04D;</i>
     <i class="material-icons" onclick="emit('volume', 'mute')">&#xE04F;</i>
     <i class="material-icons" onclick="emit('volume', 'up')">&#xE050;</i>
-    <i class="material-icons" onclick="emit('power')">&#xE8AC;</i>
+    <i class="material-icons" onclick="toggleShutdown()">&#xE8AC;</i>
     </div>
   </div>
   
   <div class="main">
-    
     <div class="app-list">
       <div class="app" onclick="emit('open', {url: 'http://iview.abc.net.au/'})">
         <img src="img/iview.png" width="100%">
@@ -148,7 +197,6 @@
       <div class="app" onclick="emit('open', {url: 'http://youtube.com/'})">
         <img src="img/youtube.png" width="100%">
       </div>
-      
       <div class="app" onclick="emit('open', {file: 'channels/7 Digital(Seven Network).m3u'})">
         <img src="img/7.jpg" width="100%">
       </div>
@@ -209,7 +257,6 @@
       <div class="app" onclick="emit('open', {file: 'channels/TVSN(Ten Melbourne).m3u'})">
         <img src="img/TVSN.jpg" width="100%">
       </div>
-      
       <div class="app" onclick="emit('open', {file: 'channels/560.m3u'})">
         <img src="img/ABC_NEWS.jpg" width="100%">
       </div>
@@ -288,27 +335,13 @@
       <div class="app" onclick="emit('open', {file: 'channels/1593.m3u'})">
         <img src="img/spree.png" width="100%">
       </div>
-      
     </div>
+
     <div class="pc-controls">
-      <div class="favorites-list">
-        <div class="app" onclick="emit('open', {url: 'http://iview.abc.net.au/'})">
-          <img src="img/iview.png" width="100%">
-        </div>
-        <div class="app" onclick="emit('open', {url: 'http://netflix.com/'})">
-          <img src="img/netflix.png" width="100%">
-        </div>
-        <div class="app" onclick="emit('open', {url: 'http://www.sbs.com.au/ondemand/'})">
-          <img src="img/ondemand.jpg" width="100%">
-        </div>
-        <div class="app" onclick="emit('open', {url: 'http://youtube.com/'})">
-          <img src="img/youtube.png" width="100%">
-        </div>
-      </div>
       <div class="text-input">
         <input id="text-input" type="text" placeholder="type here...">
       </div>
-      <div class="controls">
+      <div class="side-controls">
         <div class="side-btns">
           <div class="btn" onclick="emit('nav', 'back')">
             <i class="material-icons">&#xE5CB;</i>
@@ -328,7 +361,7 @@
           <div class="btn" onclick="emit('nav', 'forward')">
             <i class="material-icons">&#xE5CC;</i>
           </div>
-          <div class="btn" onclick="emit('nav', 'search')">
+          <div class="btn" onclick="search()">
             <i class="material-icons">&#xE8B6;</i>
           </div>
           <div class="btn" onclick="emit('nav', 'scrollUp')">
@@ -383,47 +416,84 @@
 
     var filterFirstMove = true
     
-    $('.pc-controls').hide()
+    // $('.pc-controls').hide()
+    $('.shutdown').hide()
+    $('.volume').hide()
     
-    socket.on('video list', function (list) {
-      console.log('vid', list)
-      list.forEach(function(video){
-        $('.app-list').append(`
-        <div class="app" onclick="emit('open', {file: '${video}'})">
-          <img src="img/movie.png" width="100%">
-        </div>
-        `)        
-      })
-    })
-
     var emit = function (message, data) {
       console.log(message, data)
       tap.play()
       if(data && data.url) {
-        $('.app-list').slideUp()
-        $('.pc-controls').slideDown()
-      } else if (data === 'search') {
-        $("#text-input").focus()
+        openControls()
+      } else if (data.file) {
+        closeControls()
       }
       socket.emit(message, data)
     }
     
+    var searching = false
+    $('#text-input').focusout(function () {
+      searching = false
+      $('#text-input').val('')
+    })
+    function search () {
+      searching = true
+      $('#text-input').focus()
+    }
+    
+
+    var volTimer = null
+
     socket.on('volume changed', function (volume) {
-        $('body').append('<div class="volume">'+volume+'</div>')
+      $('.volume').html(volume)
+      if (volTimer) {
+        clearTimeout(volTimer)
+      } else {
+        $('.volume').fadeIn()
+      }
+      volTimer = setTimeout(function() {
+        $('.volume').fadeOut()
+        volTimer = null
+      }, 1000)
     })
     
+    function toggleShutdown () {
+      $('.shutdown').slideToggle()
+    }
+    
+    var controls = 'closed'
+
     $('#controls').click(function () {
       tap.play()
-      $('.app-list').slideUp()
-      $('.pc-controls').slideDown()
+      toggleControls()
     })
     
-    $('#apps').click(function () {
-      tap.play()
-      $('.app-list').slideDown()
-      $('.pc-controls').slideUp()
-    })
+    function openControls () {
+      $( ".app-list" ).animate({
+        height: $('.main').height() - 480
+      }, 200)
+      
+      $( ".pc-controls" ).animate({
+        bottom: 480
+      }, 200)
+      controls = 'open'
+    }
+    
+    function closeControls () {
+      $( ".app-list" ).animate({
+        height: $('.main').height()
+      }, 200)
+      console.log(0 - $('.main').height())
+      $( ".pc-controls" ).animate({
+        bottom: 0 - $('.main').height()
+      }, 200)
+      controls = 'closed'        
+    }
 
+    function toggleControls () {
+      controls === 'open' ? closeControls() : openControls()
+    }
+    
     $(document).on('touchmove', function (e) {
       // iphone elastic scroll seems impossible to stop without this
       /// can't scroll app list with it though
@@ -472,34 +542,35 @@
     })
 
     
-    // $(document).on('touchstart', '.scroll', function (e) {
-    //   console.log("scroll start")
-    //   scrollPrev = e.originalEvent.touches[0].clientY
-    // })
-
-    // $(document).on('touchmove', '.scroll', function (e) {
-    //   console.log("scroll")
-    //   e.originalEvent.preventDefault()
-      
-    //   if (e.originalEvent.touches[0].clientY - scrollPrev > 0) {
-    //     socket.emit("scroll", 1)
-    //   } else {
-    //     socket.emit("scroll", -1)
-    //   }
-      
-    //   scrollPrev = e.originalEvent.touches[0].clientY
-    // })
-    
     $("#text-input").keyup(function (e) {
       var key = String.fromCharCode(e.keyCode)
-      if(e.keyCode === 13) {
-        $("#text-input").val('').blur()
-        key = 'enter'
-      } else if (e.keyCode === 8) {
-        key = 'backspace'
+      if (searching === true) {
+        if(e.keyCode === 13) {
+          socket.emit('open', {url: 'https://www.google.com.au/#q='+$("#text-input").val()})
+          $("#text-input").val('').blur()
+          searching = false
+        }
+      } else {
+        if(e.keyCode === 13) {
+          $("#text-input").val('').blur()
+          key = 'enter'
+        } else if (e.keyCode === 8) {
+          key = 'backspace'
+        }
+        console.log(key)
+        socket.emit("type", key)
       }
-      console.log(key)
-      socket.emit("type", key)
+    })
+    
+    socket.on('video list', function (list) {
+      console.log('vid', list)
+      list.forEach(function(video){
+        $('.app-list').append(`
+        <div class="app" onclick="emit('open', {file: '${video}'})">
+          <img src="img/movie.png" width="100%">
+        </div>
+        `)        
+      })
     })
 
   </script>
