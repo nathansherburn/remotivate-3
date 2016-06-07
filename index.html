@@ -126,8 +126,12 @@
 
       webview.addEventListener('did-start-loading', loadstart)
       webview.addEventListener('did-stop-loading', loadstop)
-      webview.addEventListener('console-message', function(m){console.log(m)})
-         
+      webview.addEventListener('console-message', function(m){console.log(m.message)})
+      webview.addEventListener('ipc-message', (event) => {
+        ipc.send(event.channel)
+        console.log('open keyboard')
+      })
+      
       ipc.on('browser', (event, url) => {
         console.log(webview.src, url)
         if (webview.src !== url) {
@@ -151,12 +155,11 @@
         }
       })
 
-      $(document).mouseup(function (e) {
-        let searchBox = $('#search-box')
-        if (!searchBox.is(e.target)) {
-          searchBox.fadeOut()
-        }
-      })
+
+      // $(document).mouseup(function (e) {
+      //   var focused = $(':focus')
+      //   console.log(focused)
+      // })
 
     }
   </script>

@@ -441,6 +441,10 @@
       $('#text-input').focus()
     }
     
+    var openKeyboard = false
+    socket.on('open keyboard', function () {
+      $('#text-input').focus()
+    })
 
     var volTimer = null
 

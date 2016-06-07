@@ -49,7 +49,6 @@ app.on('activate', function () {
 
 
 
-
 // Server
 const express = require('express')
 const expressApp = express()
@@ -137,8 +136,13 @@ io.on('connection', function (socket) {
 
   socket.on('power', function (character) {
     exec('xfce4-session-logout --suspend')
-  })  
-  
+  })
+    
+})
+
+ipc.on('input focused', function () {
+  console.log('open keyboard')
+  io.emit('open keyboard')
 })
 
 function killVlc () {
