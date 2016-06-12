@@ -24,66 +24,62 @@
         width: 100%;
       }
 
-      .load-bar {
+      .spinner {
         position: fixed;
-        top: 0px;
-        width: 100%;
-        height: 6px;
-        background-color: #0F9D58;
+        right: 60px;
+        top: 40px;
+        -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+        -webkit-animation: wobble 3.99s ease-in-out infinite;
+                animation: wobble 3.99s ease-in-out infinite;
       }
-      .bar {
+      .spinner:before, .spinner:after {
+        display: block;
         content: "";
-        display: inline;
+        width: 5vmin;
+        height: 5vmin;
+        border: 2.5vmin solid;
+        border-radius: 50%;
+        -webkit-animation: spin 1.5s ease-in-out infinite both reverse;
+                animation: spin 1.5s ease-in-out infinite both reverse;
+      }
+      .spinner:before {
+        border-color: #00aeef;
         position: absolute;
-        width: 0;
-        height: 100%;
-        left: 50%;
-        text-align: center;
       }
-      .bar:nth-child(1) {
-        background-color: #db4437;
-        animation: loading 3s linear infinite;
-      }
-      .bar:nth-child(2) {
-        background-color: #4285f4;
-        animation: loading 3s linear 1s infinite;
-      }
-      .bar:nth-child(3) {
-        background-color: #f4b400;
-        animation: loading 3s linear 2s infinite;
-      }
-      @keyframes loading {
-        from {left: 50%; width: 0;z-index:100;}
-        33.3333% {left: 0; width: 100%;z-index: 10;}
-        to {left: 0; width: 100%;}
+      .spinner:after {
+        border-color: snow;
+        -webkit-animation-delay: -0.75s;
+                animation-delay: -0.75s;
       }
 
-      #search-box {
-        display: none;
-        height: 214px;
-        width: 100%;
-        position: fixed; top: calc(50% - 107px);
-        padding: 20px;
-        box-sizing: border-box;
-        padding: 0 60px;
+      @keyframes wobble {
+        0%, 100% {
+          -webkit-transform: rotateX(8.75deg) rotateY(35deg);
+                  transform: rotateX(8.75deg) rotateY(35deg);
+        }
+        50% {
+          -webkit-transform: rotateX(35deg) rotateY(-35deg) rotate(180deg);
+                  transform: rotateX(35deg) rotateY(-35deg) rotate(180deg);
+        }
       }
-      
-      #search-box input {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        border: none;
-        outline: none;
-        font-size: 1em;
-        padding: 50px;
-        border-radius: 10px;
-        box-sizing: border-box;
-        color: #333;
-        box-shadow: 0px 10px 20px #000;
-        background-color: #000;
-        color: #fff;
+
+      @keyframes spin {
+        0%, 100% {
+          -webkit-transform: translateZ(50px) rotateX(14deg);
+                  transform: translateZ(50px) rotateX(14deg);
+        }
+        33% {
+          -webkit-transform: translateZ(-50px) scale(0.4);
+                  transform: translateZ(-50px) scale(0.4);
+        }
+        66% {
+          -webkit-transform: translateZ(-50px);
+                  transform: translateZ(-50px);
+        }
       }
-      
+
+
       .material-icons {
         font-size: 70px;
       }
@@ -91,19 +87,11 @@
     </style>
   </head>
   <body>
+
+    <div class="spinner"></div>
     
-    <div id="search-box">
-      <input id="search-input">
-    </div>
-    
-    <div class="load-bar">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    
-    <webview id="content" class="webview" src="blank.html" preload="browser-zoom.js" plugins>
-    
+    <webview id="content" class="webview" src="blank.html" preload="browser-zoom.js" plugins></webview>
+
   </body>
   <script>
     // You can also require other files to run in this process
@@ -114,14 +102,13 @@
 
     onload = () => {
       const webview = document.getElementById('content')
-      const indicator = document.querySelector('.load-bar')
             
       const loadstart = () => {
-        indicator.style.display = 'flex'
+        $('.spinner').css({'display': 'block'})
       }
 
       const loadstop = () => {
-        indicator.style.display = 'none'
+        $('.spinner').css({'display': 'none'})
       }
 
       webview.addEventListener('did-start-loading', loadstart)
