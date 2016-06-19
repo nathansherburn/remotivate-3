@@ -24,15 +24,52 @@ body, html {
     position: fixed;
     height: 60px;
     width: 100%;
-    background-color: #3b78e7;
+    background-color: #00BCD4;
     box-shadow: 0px 0px 10px #000;
     z-index: 100;
-    font-size: 80px;
     padding: 10px;
     box-sizing: border-box;
 }
 
 .top-buttons i { font-size: 30px; padding: 10px 10px; }
+
+.bottom-buttons {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #333;
+    box-shadow: 0px 0px 10px #000;
+    z-index: 100;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.bottom-buttons i { font-size: 30px; padding: 10px 10px; }
+
+.volume-slider {
+    width: 100%;
+}
+
+.noUi-background {
+    background-color: #242222 !important;
+    box-shadow: none;
+    border: none;
+}
+
+.noUi-handle {
+    width: 28px !important;
+    border: none;
+    border-radius: 14px;
+    background: #00BCD4;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+
+.noUi-handle::before, .noUi-handle::after {
+    content: none;
+}
 
 .app-list {
     display: flex;
@@ -45,7 +82,12 @@ body, html {
     box-sizing: border-box;
 }
 
-.main { height: calc(100% - 60px); margin-top: 60px; }
+.main {
+    height: calc(100% - 120px);
+    margin-top: 60px;
+    margin-bottom: 60px;
+    overflow: hidden;
+}
 
 .pc-controls { display: flex; flex-direction: column; height: 100%; }
 
@@ -82,7 +124,7 @@ body, html {
 .side-controls { height: 400px; display: flex; flex-direction: row; }
 
 .side-btns {
-    width: 80px;
+    width: 70px;
     display: flex;
     flex-direction: column;
     background-color: #333;

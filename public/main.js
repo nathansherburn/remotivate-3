@@ -2,8 +2,6 @@
 
     $( ".app-list" ).load( "apps.html" );
     
-    var tap = document.getElementsByTagName("audio")[0]
-
     // Find the right method, call on correct element
     function launchIntoFullscreen(element) {
       if(element.requestFullscreen) {
@@ -41,7 +39,6 @@
     
     var emit = function (message, data) {
       console.log(message, data)
-      tap.play()
       if(data && data.url) {
         openControls()
       } else if (data.file) {
@@ -67,6 +64,22 @@
 
     var volTimer = null
 
+    var volumeSlider = document.getElementById('volume-slider')
+
+    noUiSlider.create(volumeSlider, {
+      start: [ 30 ],
+      step: 2,
+      range: {
+        'min': [  0 ],
+        'max': [ 100 ]
+      }
+    })
+    
+    volumeSlider.noUiSlider.on('change', function(){
+      console.log('volume')
+      emit('volume', parseInt(volumeSlider.noUiSlider.get()))
+    })
+
     socket.on('volume changed', function (volume) {
       $('.volume').html(volume)
       if (volTimer) {
@@ -81,13 +94,12 @@
     })
     
     function toggleShutdown () {
-      $('.shutdown').slideToggle()
+      $('.shutdown').fadeToggle()
     }
     
     var controls = 'closed'
 
     $('#controls').click(function () {
-      tap.play()
       toggleControls()
     })
     
@@ -99,6 +111,11 @@
       $( ".pc-controls" ).animate({
         bottom: 480
       }, 200)
+      
+      $( ".bottom-buttons" ).css({
+        'box-shadow': 'none'
+      })
+
       controls = 'open'
     }
     
@@ -110,6 +127,9 @@
       $( ".pc-controls" ).animate({
         bottom: 0 - $('.main').height()
       }, 200)
+      $( ".bottom-buttons" ).css({
+        'box-shadow': '0px 0px 10px #000'
+      })
       controls = 'closed'        
     }
 

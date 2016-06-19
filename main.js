@@ -108,19 +108,10 @@ io.on('connection', function (socket) {
     console.log(value)
     let cmd = 'amixer -q -D pulse sset Master '
     if (value === 'mute') cmd += 'toggle'
-    else {
-      if (value === 'up') {
-        volume >= 95 ? volume = 100 : volume += 5 
-        cmd += 'unmute ' + volume + '%'
-      }
-      else if (value === 'down') {
-        volume <= 5 ? volume = 0 : volume -= 5 
-        cmd += 'unmute ' + volume + '%'
-      }
-    }
+    else { cmd += 'unmute ' + value + '%' }
     exec(cmd, function(error, stdout, stderr) {
       exec('amixer -q -D pulse sget Master', function(error, stdout, stderr) {
-        io.emit('volume changed', volume)
+        io.emit('volume changed', value)
       })
     })
     
