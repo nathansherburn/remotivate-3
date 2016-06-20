@@ -75,9 +75,13 @@
       }
     })
     
-    volumeSlider.noUiSlider.on('change', function(){
+    volumeSlider.noUiSlider.on('update', function(){
       console.log('volume')
-      emit('volume', parseInt(volumeSlider.noUiSlider.get()))
+      var volumeLevel = parseInt(volumeSlider.noUiSlider.get())
+      if (volumeLevel > 70) {
+        //alert('Are you sure?')
+      }
+      emit('volume', volumeLevel)
     })
 
     socket.on('volume changed', function (volume) {
