@@ -64,7 +64,6 @@ expressApp.use(express.static('public'))
 
 let s = robot.getScreenSize()
 let mousePos = robot.getMousePos()
-let volume = 10
 
 // Initialize audio volume to 10%
 exec('amixer -q -D pulse sset Master unmute 26%')
