@@ -147,7 +147,7 @@ function killVlc () {
 
 function play (file) {
   return new Promise(function(resolve, reject) {
-    let cmd = `cvlc --fullscreen --no-video-title --no-mouse-events '${__dirname}/${file}'`
+    let cmd = `cvlc --fullscreen --no-video-title --no-mouse-events --aspect-ratio 4:3 '${__dirname}/${file}'`
     exec(cmd, function(error, stdout, stderr) {
       resolve()
     })
