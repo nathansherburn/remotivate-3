@@ -1,0 +1,118 @@
+#EXTM3U
+#EXTINF:0,7 Melbourne
+#EXTVLCOPT:program=1328
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7HD Melbourne
+#EXTVLCOPT:program=1332
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7 Melbourne
+#EXTVLCOPT:program=1329
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7TWO Melbourne
+#EXTVLCOPT:program=1330
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7mate Melbourne
+#EXTVLCOPT:program=1331
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,7flix Melbourne
+#EXTVLCOPT:program=1333
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,RACING.COM
+#EXTVLCOPT:program=1336
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TV4ME
+#EXTVLCOPT:program=1335
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=3/4:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Fresh Ideas TV
+#EXTVLCOPT:program=1336
+dvb-t://frequency=177500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=3/4:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SBS ONE
+#EXTVLCOPT:program=785
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SBS HD
+#EXTVLCOPT:program=789
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SBS TWO
+#EXTVLCOPT:program=786
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Food Network
+#EXTVLCOPT:program=787
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,NITV
+#EXTVLCOPT:program=788
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SBS Radio 1
+#EXTVLCOPT:program=798
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SBS Radio 2
+#EXTVLCOPT:program=799
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SBS Radio 3
+#EXTVLCOPT:program=800
+dvb-t://frequency=184500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Channel 9 Melbourne
+#EXTVLCOPT:program=1072
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9HD Melbourne
+#EXTVLCOPT:program=1073
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Go!
+#EXTVLCOPT:program=1074
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Life
+#EXTVLCOPT:program=1075
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Extra
+#EXTVLCOPT:program=1076
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Channel 9 Melbourne
+#EXTVLCOPT:program=1077
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Gem
+#EXTVLCOPT:program=1078
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,9Go!
+#EXTVLCOPT:program=1079
+dvb-t://frequency=191625000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ONE
+#EXTVLCOPT:program=1585
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TEN Digital
+#EXTVLCOPT:program=1589
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TVSN
+#EXTVLCOPT:program=1590
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ONE
+#EXTVLCOPT:program=1591
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ELEVEN
+#EXTVLCOPT:program=1592
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,SpreeTV
+#EXTVLCOPT:program=1593
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,TEN HD
+#EXTVLCOPT:program=1588
+dvb-t://frequency=219500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC News 24
+#EXTVLCOPT:program=560
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC
+#EXTVLCOPT:program=561
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC KIDS
+#EXTVLCOPT:program=562
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC
+#EXTVLCOPT:program=563
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC3
+#EXTVLCOPT:program=564
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,Double J
+#EXTVLCOPT:program=566
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0
+#EXTINF:0,ABC Jazz
+#EXTVLCOPT:program=567
+dvb-t://frequency=226500000:inversion=0:bandwidth=7:code-rate-hp=3/4:code-rate-lp=0:modulation=64QAM:transmission=-1:guard=1/16:hierarchy=0

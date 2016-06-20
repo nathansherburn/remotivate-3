@@ -1,5 +1,5 @@
 var fs = require('fs');
-var channels = fs.readFileSync('channels.m3u').toString().split("\n");
+var channels = fs.readFileSync('channels2.m3u').toString().split("\n");
 
 
 for(var i = 1; i < channels.length - 1; i += 3) {
