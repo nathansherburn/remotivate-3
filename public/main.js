@@ -110,11 +110,11 @@
     function openControls () {
       $( ".app-list" ).animate({
         height: $('.main').height() - 480
-      }, 200)
+      }, 500)
       
       $( ".pc-controls" ).animate({
         bottom: 480
-      }, 200)
+      }, 500)
       
       $( ".bottom-buttons" ).css({
         'box-shadow': 'none'
@@ -126,11 +126,11 @@
     function closeControls () {
       $( ".app-list" ).animate({
         height: $('.main').height()
-      }, 200)
+      }, 500)
       console.log(0 - $('.main').height())
       $( ".pc-controls" ).animate({
         bottom: 0 - $('.main').height()
-      }, 200)
+      }, 500)
       $( ".bottom-buttons" ).css({
         'box-shadow': '0px 0px 10px #000'
       })
