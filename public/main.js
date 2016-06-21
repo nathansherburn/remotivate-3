@@ -75,7 +75,7 @@
       }
     })
     
-    volumeSlider.noUiSlider.on('update', function(){
+    volumeSlider.noUiSlider.on('set', function(){
       console.log('volume')
       var volumeLevel = parseInt(volumeSlider.noUiSlider.get())
       if (volumeLevel > 70) {
